@@ -456,9 +456,12 @@ def create_output_frame(offcenter, pts, undist_ori, fps, curvature, curve_direct
     """
 
     undist_ori = cv2.resize(undist_ori, (0,0), fx=1/output_frame_scale, fy=1/output_frame_scale)
+    
+    #Get the Height and Width (number of rows) of the image (w,h)
     w = undist_ori.shape[1]
     h = undist_ori.shape[0]
-
+    
+    # Transform the image to Birds Eye View using thewraper method
     undist_birdview = warper(cv2.resize(undist_ori, (0,0), fx=1/2, fy=1/2), M_b)
 
     color_warp = np.zeros_like(undist_ori).astype(np.uint8)
