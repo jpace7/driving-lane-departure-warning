@@ -612,7 +612,7 @@ def process_frame(img, visualization=False):
     fps = 1.0 / (end - start)
 
     # combine all images into final video output (only for visualization purpose)
-    output = create_output_frame(offcenter, pts, img_undist_, fps, curvature, curve_direction, binary_sub)
+    output = img_undist_
     return output
 
 
